@@ -4,3 +4,6 @@ class Nodo:
     self.pai = pai
     self.acao = acao
     self.custo = custo
+    
+  def __lt__(self, other):
+    return self.custo < other.custo
