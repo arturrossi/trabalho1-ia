@@ -1,9 +1,9 @@
 # Trabalho 1 da cadeira de Inteligência Artificial
 
 ## Integrantes
-* Artur Rossi
-* André Carini
-* Moatan Pedroso Godoy
+* Artur Rossi | 303217
+* André Carini | 260843
+* Moatan Pedroso Godoy | 246789
 
 ## Estatísticas com a entrada 2_3541687
 
