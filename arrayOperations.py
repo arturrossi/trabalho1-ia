@@ -2,6 +2,7 @@ import copy
 from Nodo import *
 from collections import deque 
 from heapq import heappush, heappop, heapify
+import timeit
 
 POSSIBLE_MOVES = ['abaixo', 'acima', 'direita', 'esquerda']
 
@@ -145,7 +146,7 @@ def expande(nodo):
  
 def bfs(estado):
 	endState = goBFS(estado)
- 
+
 	return returnListOfMoves(endState)
 		
 def dfs(estado):
@@ -174,6 +175,7 @@ def goDFS(estado):
 		explorados.add(v.estado)
 	
 		if (v.estado == FINAL_STATE):
+			print('Nós expandidos DFS: ', len(explorados))
 			return v
 		
 		expandidos = expande(v)
@@ -191,6 +193,7 @@ def goBFS(estado):
 		explorados.add(v.estado)
 	
 		if (v.estado == FINAL_STATE):
+			print('Nós expandidos BFS: ', len(explorados))
 			return v
 		
 		expandidos = expande(v)
@@ -225,6 +228,7 @@ def goAstarhamming(estado):
 		numberOfOutOfPlaceTiles = getAmountOfOutOfPlaceTiles(v[1].estado)
 	
 		if (v[1].estado == FINAL_STATE):
+			print('Nós expandidos A* Hamming: ', len(explorados))
 			return v[1]
 		
 		expandidos = expande(v[1])
@@ -247,6 +251,7 @@ def goAstarManhattan(estado):
 		remainingSteps = remainingStepsToBeInPlace(v[1].estado)
 	
 		if (v[1].estado == FINAL_STATE):
+			print('Nós expandidos A* Manhattan: ', len(explorados))
 			return v[1]
 		
 		expandidos = expande(v[1])
@@ -261,7 +266,7 @@ def remainingStepsToBeInPlace(estado):
 	array2D = makeArray2DFromState(estado)
 		
 	stepsToBeInPlace = 0
-  
+	
 	for char in range(0, 3):
 		for i in range (0, 3):
 			if (array2D[char%3][i] is not finalStateArray2D[char%3][i]):
